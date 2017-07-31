@@ -38,6 +38,70 @@ header.heading = 0
 header.elevation = 15
 vr.projectLayer(header)
 
+batman = new Layer
+	width: 240
+	height: 240
+	image: "images/Batman.png"
+batman.heading = -18
+batman.elevation = 6
+vr.projectLayer(batman)
+
+gtSport = new Layer
+	width: 240
+	height: 240
+	image: "images/GTSport.png"
+gtSport.heading = -6
+gtSport.elevation = 6
+vr.projectLayer(gtSport)
+
+farpoint = new Layer
+	width: 240
+	height: 240
+	image: "images/Farpoint.png"
+farpoint.heading = 6
+farpoint.elevation = 6
+vr.projectLayer(farpoint)
+
+vrWorlds = new Layer
+	width: 240
+	height: 240
+	image: "images/VRWorlds.png"
+vrWorlds.heading = 18
+vrWorlds.elevation = 6
+vr.projectLayer(vrWorlds)
+
+destiny = new Layer
+	width: 240
+	height: 240
+	image: "images/Destiny.png"
+destiny.heading = -18
+destiny.elevation = -6
+vr.projectLayer(destiny)
+
+fifa = new Layer
+	width: 240
+	height: 240
+	image: "images/Fifa18.png"
+fifa.heading = -6
+fifa.elevation = -6
+vr.projectLayer(fifa)
+
+bloodborne = new Layer
+	width: 240
+	height: 240
+	image: "images/Bloodborne.png"
+bloodborne.heading = 6
+bloodborne.elevation = -6
+vr.projectLayer(bloodborne)
+
+more = new Layer
+	width: 240
+	height: 240
+	image: "images/More.png"
+more.heading = 18
+more.elevation = -6
+vr.projectLayer(more)
+
 # Chat layers
 chatHeader = new Layer
 	width: 385
@@ -100,6 +164,8 @@ vr.projectLayer(pablo)
 # Define an objects array for each kind of layers
 users = [fernando, juan, oscar, carlos, deivid, pablo]
 
+games = [batman, gtSport, farpoint, vrWorlds, destiny, fifa, bloodborne, more]
+
 
 # --- Orientation function --- 
 # Animate each object on OrientationDidChange event
@@ -124,6 +190,26 @@ vr.on Events.OrientationDidChange, (data) ->
 		else
 			user.animate
 				scale: 1
+				options:
+					time: 0.50
+					curve: Spring
+
+	# Games animations
+	[].forEach.call games, (game) ->
+		exeX = Math.abs(heading - game.heading)
+		exeY = Math.abs(elevation - game.elevation)
+		
+		if exeX < 5.75 && exeY < 5.75
+			game.animate
+				scale: 1.05
+				opacity: 1
+				options:
+					time: 0.50
+					curve: Spring
+		else
+			game.animate
+				scale: 1
+				opacity: 0.7
 				options:
 					time: 0.50
 					curve: Spring
