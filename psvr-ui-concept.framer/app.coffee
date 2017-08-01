@@ -2,19 +2,44 @@
 {VRComponent, VRLayer} = require "VRComponent"
 
 
-# VR Component
-vr = new VRComponent
+# --- Stereoscopics glasses ---
+leftGlass = new Layer
+	width: 333
+	height: 375
+	x: 0
+	y: 0
+rightGlass = new Layer
+	width: 333
+	height: 375
+	x: 333
+	y: 0
+
+
+# --- VR Components ---
+vrLeft = new VRComponent
 	front: "images/front.jpg"
 	right: "images/right.jpg"
 	left: "images/left.jpg"
 	back: "images/back.jpg"
 	bottom: "images/bottom.jpg"
 	top: "images/top.jpg"
-	arrowKeys = true
+	width: 333
+	height: 375
+	parent: leftGlass
+vrRight = new VRComponent
+	front: "images/front.jpg"
+	right: "images/right.jpg"
+	left: "images/left.jpg"
+	back: "images/back.jpg"
+	bottom: "images/bottom.jpg"
+	top: "images/top.jpg"
+	width: 333
+	height: 375
+	parent: rightGlass
 
 
-# Cursor
-cursor = new Layer
+# --- Cursors ---
+cursorLeft = new Layer
 	width: 20
 	height: 20
 	x: Align.center
@@ -26,176 +51,340 @@ cursor = new Layer
 	shadowSpread: 2
 	shadowColor: "rgba(255,255,255,0.66)"
 	shadowBlur: 10
+	parent: leftGlass
+cursorRight = new Layer
+	width: 20
+	height: 20
+	x: Align.center
+	y: Align.center
+	backgroundColor: "rgba(0,211,255,0.75)"
+	borderColor: "rgba(255,255,255,1)"
+	borderWidth: 4
+	borderRadius: 100
+	shadowSpread: 2
+	shadowColor: "rgba(255,255,255,0.66)"
+	shadowBlur: 10
+	parent: rightGlass
 
 
 # --- Layers ---
 # Home layers 
-header = new Layer
+headerLeft = new Layer
 	width: 1024
 	height: 46
 	image: "images/Header.png"
-header.heading = 0
-header.elevation = 15
-vr.projectLayer(header)
+headerLeft.heading = 0
+headerLeft.elevation = 15
+vrLeft.projectLayer(headerLeft)
+headerRight = new Layer
+	width: 1024
+	height: 46
+	image: "images/Header.png"
+headerRight.heading = 0
+headerRight.elevation = 15
+vrRight.projectLayer(headerRight)
 
-batman = new Layer
+batmanLeft = new Layer
 	width: 240
 	height: 240
 	image: "images/Batman.png"
-batman.heading = -18
-batman.elevation = 6
-vr.projectLayer(batman)
+batmanLeft.heading = -18
+batmanLeft.elevation = 6
+vrLeft.projectLayer(batmanLeft)
+batmanRight = new Layer
+	width: 240
+	height: 240
+	image: "images/Batman.png"
+batmanRight.heading = -18
+batmanRight.elevation = 6
+vrRight.projectLayer(batmanRight)
 
-gtSport = new Layer
+gtSportLeft = new Layer
 	width: 240
 	height: 240
 	image: "images/GTSport.png"
-gtSport.heading = -6
-gtSport.elevation = 6
-vr.projectLayer(gtSport)
+gtSportLeft.heading = -6
+gtSportLeft.elevation = 6
+vrLeft.projectLayer(gtSportLeft)
+gtSportRight = new Layer
+	width: 240
+	height: 240
+	image: "images/GTSport.png"
+gtSportRight.heading = -6
+gtSportRight.elevation = 6
+vrRight.projectLayer(gtSportRight)
 
-farpoint = new Layer
+farpointLeft = new Layer
 	width: 240
 	height: 240
 	image: "images/Farpoint.png"
-farpoint.heading = 6
-farpoint.elevation = 6
-vr.projectLayer(farpoint)
+farpointLeft.heading = 6
+farpointLeft.elevation = 6
+vrLeft.projectLayer(farpointLeft)
+farpointRight = new Layer
+	width: 240
+	height: 240
+	image: "images/Farpoint.png"
+farpointRight.heading = 6
+farpointRight.elevation = 6
+vrRight.projectLayer(farpointRight)
 
-vrWorlds = new Layer
+vrWorldsLeft = new Layer
 	width: 240
 	height: 240
 	image: "images/VRWorlds.png"
-vrWorlds.heading = 18
-vrWorlds.elevation = 6
-vr.projectLayer(vrWorlds)
+vrWorldsLeft.heading = 18
+vrWorldsLeft.elevation = 6
+vrLeft.projectLayer(vrWorldsLeft)
+vrWorldsRight = new Layer
+	width: 240
+	height: 240
+	image: "images/VRWorlds.png"
+vrWorldsRight.heading = 18
+vrWorldsRight.elevation = 6
+vrRight.projectLayer(vrWorldsRight)
 
-destiny = new Layer
+destinyLeft = new Layer
 	width: 240
 	height: 240
 	image: "images/Destiny.png"
-destiny.heading = -18
-destiny.elevation = -6
-vr.projectLayer(destiny)
+destinyLeft.heading = -18
+destinyLeft.elevation = -6
+vrLeft.projectLayer(destinyLeft)
+destinyRight = new Layer
+	width: 240
+	height: 240
+	image: "images/Destiny.png"
+destinyRight.heading = -18
+destinyRight.elevation = -6
+vrRight.projectLayer(destinyRight)
 
-fifa = new Layer
+fifaLeft = new Layer
 	width: 240
 	height: 240
 	image: "images/Fifa18.png"
-fifa.heading = -6
-fifa.elevation = -6
-vr.projectLayer(fifa)
+fifaLeft.heading = -6
+fifaLeft.elevation = -6
+vrLeft.projectLayer(fifaLeft)
+fifaRight = new Layer
+	width: 240
+	height: 240
+	image: "images/Fifa18.png"
+fifaRight.heading = -6
+fifaRight.elevation = -6
+vrRight.projectLayer(fifaRight)
 
-bloodborne = new Layer
+bloodborneLeft = new Layer
 	width: 240
 	height: 240
 	image: "images/Bloodborne.png"
-bloodborne.heading = 6
-bloodborne.elevation = -6
-vr.projectLayer(bloodborne)
+bloodborneLeft.heading = 6
+bloodborneLeft.elevation = -6
+vrLeft.projectLayer(bloodborneLeft)
+bloodborneRight = new Layer
+	width: 240
+	height: 240
+	image: "images/Bloodborne.png"
+bloodborneRight.heading = 6
+bloodborneRight.elevation = -6
+vrRight.projectLayer(bloodborneRight)
 
-more = new Layer
+moreLeft = new Layer
 	width: 240
 	height: 240
 	image: "images/More.png"
-more.heading = 18
-more.elevation = -6
-vr.projectLayer(more)
+moreLeft.heading = 18
+moreLeft.elevation = -6
+vrLeft.projectLayer(moreLeft)
+moreRight = new Layer
+	width: 240
+	height: 240
+	image: "images/More.png"
+moreRight.heading = 18
+moreRight.elevation = -6
+vrRight.projectLayer(moreRight)
 
-# Chat layers
-chatHeader = new Layer
+# --- Chat layers ---
+chatHeaderLeft = new Layer
 	width: 385
 	height: 42
 	image: "images/Chat_header.png"
-chatHeader.heading = 40
-chatHeader.elevation = 14
-vr.projectLayer(chatHeader)
+chatHeaderLeft.heading = 40
+chatHeaderLeft.elevation = 14
+vrLeft.projectLayer(chatHeaderLeft)
+chatHeaderRight = new Layer
+	width: 385
+	height: 42
+	image: "images/Chat_header.png"
+chatHeaderRight.heading = 40
+chatHeaderRight.elevation = 14
+vrRight.projectLayer(chatHeaderRight)
 
-fernando = new Layer
+fernandoLeft = new Layer
 	width: 385
 	height: 70
 	image: "images/Fernando.png"
-fernando.heading = 40
-fernando.elevation = 10
-vr.projectLayer(fernando)
+fernandoLeft.heading = 40
+fernandoLeft.elevation = 10
+vrLeft.projectLayer(fernandoLeft)
+fernandoRight = new Layer
+	width: 385
+	height: 70
+	image: "images/Fernando.png"
+fernandoRight.heading = 40
+fernandoRight.elevation = 10
+vrRight.projectLayer(fernandoRight)
 
-juan = new Layer
+juanLeft = new Layer
 	width: 385
 	height: 70
 	image: "images/Juan.png"
-juan.heading = 40
-juan.elevation = 6.25
-vr.projectLayer(juan)
+juanLeft.heading = 40
+juanLeft.elevation = 6.25
+vrLeft.projectLayer(juanLeft)
+juanRight = new Layer
+	width: 385
+	height: 70
+	image: "images/Juan.png"
+juanRight.heading = 40
+juanRight.elevation = 6.25
+vrRight.projectLayer(juanRight)
 
-oscar = new Layer
+oscarLeft = new Layer
 	width: 385
 	height: 70
 	image: "images/Oscar.png"
-oscar.heading = 40
-oscar.elevation = 2.5
-vr.projectLayer(oscar)
+oscarLeft.heading = 40
+oscarLeft.elevation = 2.5
+vrLeft.projectLayer(oscarLeft)
+oscarRight = new Layer
+	width: 385
+	height: 70
+	image: "images/Oscar.png"
+oscarRight.heading = 40
+oscarRight.elevation = 2.5
+vrRight.projectLayer(oscarRight)
 
-carlos = new Layer
+carlosLeft = new Layer
 	width: 385
 	height: 70
 	image: "images/Carlos.png"
-carlos.heading = 40
-carlos.elevation = -1.25
-vr.projectLayer(carlos)
+carlosLeft.heading = 40
+carlosLeft.elevation = -1.25
+vrLeft.projectLayer(carlosLeft)
+carlosRight = new Layer
+	width: 385
+	height: 70
+	image: "images/Carlos.png"
+carlosRight.heading = 40
+carlosRight.elevation = -1.25
+vrRight.projectLayer(carlosRight)
 
-deivid = new Layer
+deividLeft = new Layer
 	width: 385
 	height: 70
 	image: "images/Deivid.png"
-deivid.heading = 40
-deivid.elevation = -5
-vr.projectLayer(deivid)
+deividLeft.heading = 40
+deividLeft.elevation = -5
+vrLeft.projectLayer(deividLeft)
+deividRight = new Layer
+	width: 385
+	height: 70
+	image: "images/Deivid.png"
+deividRight.heading = 40
+deividRight.elevation = -5
+vrRight.projectLayer(deividRight)
 
-pablo = new Layer
+pabloLeft = new Layer
 	width: 385
 	height: 70
 	image: "images/Pablo.png"
-pablo.heading = 40
-pablo.elevation = -8.75
-vr.projectLayer(pablo)
+pabloLeft.heading = 40
+pabloLeft.elevation = -8.75
+vrLeft.projectLayer(pabloLeft)
+pabloRight = new Layer
+	width: 385
+	height: 70
+	image: "images/Pablo.png"
+pabloRight.heading = 40
+pabloRight.elevation = -8.75
+vrRight.projectLayer(pabloRight)
 
-# Setting layers
-settings = new Layer
+# --- Setting layers ---
+settingsLeft = new Layer
 	width: 385
 	height: 496
 	image: "images/Settings.png"
-settings.heading = 65
-settings.elevation = 3.5
-vr.projectLayer(settings)
+settingsLeft.heading = 65
+settingsLeft.elevation = 3.5
+vrLeft.projectLayer(settingsLeft)
+settingsRight = new Layer
+	width: 385
+	height: 496
+	image: "images/Settings.png"
+settingsRight.heading = 65
+settingsRight.elevation = 3.5
+vrRight.projectLayer(settingsRight)
 
-# News layers
-news = new Layer
+# --- News layers ---
+newsLeft = new Layer
 	width: 768
 	height: 554
 	image: "images/News.png"
-news.heading = -48.5
-news.elevation = 2.5
-vr.projectLayer(news)
+newsLeft.heading = -48.5
+newsLeft.elevation = 2.5
+vrLeft.projectLayer(newsLeft)
+newsRight = new Layer
+	width: 768
+	height: 554
+	image: "images/News.png"
+newsRight.heading = -48.5
+newsRight.elevation = 2.5
+vrRight.projectLayer(newsRight)
 
 
 # --- Interactives objects ---
 # Define an objects array for each kind of layers
-users = [fernando, juan, oscar, carlos, deivid, pablo]
+gamesLeft = [batmanLeft, gtSportLeft, farpointLeft, vrWorldsLeft, destinyLeft, fifaLeft, bloodborneLeft, moreLeft]
 
-games = [batman, gtSport, farpoint, vrWorlds, destiny, fifa, bloodborne, more]
+gamesRight = [batmanRight, gtSportRight, farpointRight, vrWorldsRight, destinyRight, fifaRight, bloodborneRight, moreRight]
+
+usersLeft = [fernandoLeft, juanLeft, oscarLeft, carlosLeft, deividLeft, pabloLeft]
+
+usersRight = [fernandoRight, juanRight, oscarRight, carlosRight, deividRight, pabloRight]
 
 
 # --- Orientation function --- 
 # Animate each object on OrientationDidChange event
-vr.on Events.OrientationDidChange, (data) ->
+vrLeft.on Events.OrientationDidChange, (data) ->
 
 	# Store the camera X and Y positions in two variable
 	# for use them any time
 	heading = data.heading
 	elevation = data.elevation
+
+	# Games animations
+	[].forEach.call gamesLeft, (game) ->
+		exeX = Math.abs(heading - game.heading)
+		exeY = Math.abs(elevation - game.elevation)
+		
+		if exeX < 5.75 && exeY < 5.75
+			game.animate
+				scale: 1.05
+				opacity: 1
+				options:
+					time: 0.50
+					curve: Spring
+		else
+			game.animate
+				scale: 1
+				opacity: 0.7
+				options:
+					time: 0.50
+					curve: Spring
 	
 	# Chat users animations
-	[].forEach.call users, (user) ->
+	[].forEach.call usersLeft, (user) ->
 		exeX = Math.abs(heading - user.heading)
 		exeY = Math.abs(elevation - user.elevation)
 		
@@ -212,8 +401,15 @@ vr.on Events.OrientationDidChange, (data) ->
 					time: 0.50
 					curve: Spring
 
+vrRight.on Events.OrientationDidChange, (data) ->
+
+	# Store the camera X and Y positions in two variable
+	# for use them any time
+	heading = data.heading
+	elevation = data.elevation
+
 	# Games animations
-	[].forEach.call games, (game) ->
+	[].forEach.call gamesRight, (game) ->
 		exeX = Math.abs(heading - game.heading)
 		exeY = Math.abs(elevation - game.elevation)
 		
@@ -228,6 +424,24 @@ vr.on Events.OrientationDidChange, (data) ->
 			game.animate
 				scale: 1
 				opacity: 0.7
+				options:
+					time: 0.50
+					curve: Spring
+	
+	# Chat users animations
+	[].forEach.call usersRight, (user) ->
+		exeX = Math.abs(heading - user.heading)
+		exeY = Math.abs(elevation - user.elevation)
+		
+		if exeX < 9 && exeY < 1.5
+			user.animate
+				scale: 1.1
+				options:
+					time: 0.50
+					curve: Spring
+		else
+			user.animate
+				scale: 1
 				options:
 					time: 0.50
 					curve: Spring
