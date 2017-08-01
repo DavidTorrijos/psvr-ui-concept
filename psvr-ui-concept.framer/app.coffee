@@ -159,6 +159,24 @@ pablo.heading = 40
 pablo.elevation = -8.75
 vr.projectLayer(pablo)
 
+# Setting layers
+settings = new Layer
+	width: 385
+	height: 496
+	image: "images/Settings.png"
+settings.heading = 65
+settings.elevation = 3.5
+vr.projectLayer(settings)
+
+# News layers
+news = new Layer
+	width: 768
+	height: 554
+	image: "images/News.png"
+news.heading = -48.5
+news.elevation = 2.5
+vr.projectLayer(news)
+
 
 # --- Interactives objects ---
 # Define an objects array for each kind of layers
